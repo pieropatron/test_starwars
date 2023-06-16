@@ -19,7 +19,9 @@ After install, please, open following link at your web browser : http://localhos
 Additionally, it is possible to request required data using API (Get).
 
 API path: restapi/getList
+
 API method: GET
+
 API query options:
 * search: a part of name (case insensitive) to search, string
 
