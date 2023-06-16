@@ -4,7 +4,7 @@ Test project for vacation.
 
 Task described here: https://docs.google.com/document/d/1roF2m313Ky6o5C7Im-tp0k1F_7MuZKpR-KJ7aJcNz-I/edit
 
-#Install
+# Install
 
 ``` bash
 git clone https://github.com/pieropatron/test_starwars.git <dest dir>
@@ -15,6 +15,7 @@ npm start
 
 After install, please, open following link at your web browser : http://localhost:3000/ to seek data using UI
 
+# API
 Additionally, it is possible to request required data using API (Get).
 
 API path: restapi/getList
@@ -37,7 +38,7 @@ API result is JSON array of elements with following structure:
 -- tags of starships: "length", "crew", "passengers"
 
 Example of result:
-``` bash
+``` JSON
 [
 	{
 		"name": "CR90 corvette",
