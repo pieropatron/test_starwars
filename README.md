@@ -35,8 +35,11 @@ API result is JSON array of elements with following structure:
 * type: string - type of element (people, planets, starships)
 * name: string - name of element
 * tags: Record<string, string> - list of tags (properties) of element:
+
 -- tags of people: "gender", "mass"
+
 -- tags of planets: "diameter", "population"
+
 -- tags of starships: "length", "crew", "passengers"
 
 Example of result:
