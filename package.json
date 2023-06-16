@@ -5,7 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc; node dist/app"
+    "start": "rimraf dist && tsc && node dist/app"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "@types/express": "^4.17.17",
     "@types/lodash": "^4.14.195",
     "@types/node": "^18.14.6",
+    "@types/react": "^18.2.12",
     "@typescript-eslint/eslint-plugin": "^5.45.1",
     "@typescript-eslint/parser": "^5.45.1",
     "eslint": "^8.29.0",
@@ -31,7 +32,12 @@
   "dependencies": {
     "@pieropatron/tinylogger": "^1.0.3",
     "axios": "^1.4.0",
+    "bootstrap": "^5.3.0",
     "express": "^4.18.2",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "next": "^13.4.5",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
+    "react-dom": "^18.2.0"
   }
 }

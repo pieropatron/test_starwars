@@ -16,6 +16,8 @@
     "declaration": true,
     "alwaysStrict": true,
     "moduleResolution": "node",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
     "lib": [
       "es2022",
       "esnext.array",
@@ -24,7 +26,8 @@
   },
   "include": [
     "./src/*.ts",
-    "./src/**/*.ts"
+    "./src/**/*.ts",
+    "./src/next/**/*.tsx"
   ],
   "exclude": [
     "node_modules"

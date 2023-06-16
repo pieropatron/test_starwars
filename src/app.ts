@@ -2,6 +2,7 @@ import express from 'express';
 import http from 'http';
 import axios, {AxiosError} from 'axios';
 import _ from 'lodash';
+import next from 'next';
 import {Logger} from '@pieropatron/tinylogger';
 
 const logger = new Logger(`test_starwars`);
@@ -54,7 +55,19 @@ const get_list = async (type: string, results: any[], search?: string)=>{
 };
 
 const start = async ()=>{
-	const restapi = express();
+	const next_app = next({
+		dev: process.env.NODE_ENV !== 'production',
+		dir: __dirname + '/next/',
+		customServer: true,
+		conf: {}
+	});
+
+	const handle = next_app.getRequestHandler();
+	await next_app.prepare();
+	const app = express();
+
+	const restapi = express.Router();
+
 	restapi.use(express.json());
 
 	restapi.get("/getList", async (req, res)=>{
@@ -92,7 +105,13 @@ const start = async ()=>{
 		}
 	});
 
-	http.createServer(restapi).listen(3000);
+	app.use("/restapi", restapi);
+
+	app.all("*", async (req, res)=>{
+		return handle(req, res);
+	});
+
+	http.createServer(app).listen(3000);
 };
 
 const time = logger.time('init', 'info');
