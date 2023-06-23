@@ -72,7 +72,7 @@ const start = async ()=>{
 
 	restapi.get("/getList", async (req, res)=>{
 		const query: {search?: string} = req.query;
-		const results: ResponseRow[] = [];
+		let results: ResponseRow[] = [];
 		const search = query.search || "";
 		if (typeof(search) !== 'string'){
 			res.status(422).json({
@@ -83,6 +83,13 @@ const start = async ()=>{
 
 		for (const type in TYPES){
 			await get_list(type, results, search);
+		}
+
+		if (search && results.length){
+			const re = new RegExp(_.escapeRegExp(search), "i");
+			results = _.filter(results, row=>{
+				return re.test(row.name);
+			});
 		}
 
 		res.json(results);
